@@ -1,0 +1,24 @@
+/* font mulish */
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/* reusable style */
+.font-mulish{
+    font-family: "Mulish", sans-serif;
+}
+
+/* making toolpit */
+.tooltip {
+    position: relative;
+  }
+  .tooltip-text {
+    visibility: hidden;
+    background-color: antiquewhite;
+    padding: 8px;
+    position: absolute;
+    top: 55px;
+    left: 5px;
+    z-index: 1;
+  }
+  .tooltip:hover .tooltip-text {
+    visibility: visible;
+  }

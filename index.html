@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Forum</title>
+  <!-- DaisyUI and Tailwind -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- custom css -->
+  <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+  <!-- header -->
+  <header class="w-11/12 md:w-5/6 mx-auto">
+    <!-- navbar -->
+    <div class="navbar bg-base-100 my-4">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+            </svg>
+          </div>
+          <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-60">
+            <div>
+              <button class="btn btn-ghost bg-slate-100 btn-circle">
+                <img src="resources/icons/Vector.svg" alt="">
+              </button>
+              <button class="btn btn-ghost bg-slate-100 btn-circle">
+                <img src="resources/icons/Frame.svg" alt="">
+              </button>
+              <button class="btn btn-ghost bg-slate-100 btn-circle">
+                <img src="resources/icons/Frame (1).svg" alt="">
+              </button>
+              <button class="btn btn-ghost bg-slate-100 btn-circle">
+                <img src="resources/icons/Frame (2).svg" alt="">
+              </button>
+            </div>
+          </ul>
+        </div>
+        <a href="" class="text-5xl font-bold">API</a>
+      </div>
+      <div class="navbar-end space-x-4">
+        <div class=" hidden lg:flex">
+          <div class="menu menu-horizontal px-1 gap-2">
+            <div class="tooltip">
+              <button class="btn btn-circle">
+                <img src="resources/icons/Vector.svg" alt="">
+                <span class="tooltip-text">Home</span>
+              </button>
+            </div>
+            <div class="tooltip">
+              <button class="btn btn-circle">
+                <img src="resources/icons/Frame.svg" alt="">
+                <span class="tooltip-text">Edit</span>
+              </button>
+            </div>
+            <div class="tooltip">
+              <button class="btn btn-circle">
+                <img src="resources/icons/Frame (1).svg" alt="">
+                <span class="tooltip-text">Add</span>
+              </button>
+            </div>
+            <div class="tooltip">
+              <button class="btn btn-circle">
+                <img src="resources/icons/Frame (2).svg" alt="">
+                <span class="tooltip-text">Flug</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <a href="" class="px-8 py-3 bg-[#797DFC] flex items-center text-base text-white font-bold rounded-full">Sign
+          In</a>
+      </div>
+    </div>
+    <!-- banner -->
+    <div class="banner-container bg-[#12132D] rounded-2xl">
+      <div class="banner flex flex-col md:flex-row justify-between py-12 px-8 md:px-12 lg:p-24 gap-6 md:gap-0">
+        <div class="left-content w-full md:w-1/2 text-white space-y-3 md:space-y-6">
+          <h1 class="text-3xl md:text-4xl lg:text-6xl font-bold">Welcome to the <br><span
+              class="text-[#797DFC] font-extrabold">API</span> Forum</h1>
+          <p class="text-base lg:text-lg font-normal md:font-medium">Share your favorite opinion and win and up forum
+            coffee mug!</p>
+          <div class="text-black font-medium relative">
+            <input id="input-search" type="text" placeholder="Type here"
+              class="input input-bordered w-full max-w-xs rounded-full" />
+            <a id="search-btn" href=""
+              class="py-2 bg-[#797DFC] flex justify-center items-center text-base text-white font-bold rounded-full w-28 absolute bottom-1 left-[49%] md:left-[57%] lg:left-[43%]">Search</a>
+          </div>
+        </div>
+        <div class="right-content w-full md:w-1/2 flex justify-end items-center">
+          <div class="w-full md:w-2/3 p-8 bg-white rounded-xl space-y-4">
+            <div class="text-[#12132DCC] flex justify-between text-xl font-bold">
+              <p>Registered Users</p>
+              <span>01</span>
+            </div>
+            <div class="text-[#12132DCC] flex justify-between text-xl font-bold">
+              <p>Forum</p>
+              <span>02</span>
+            </div>
+            <div class="text-[#12132DCC] flex justify-between text-xl font-bold">
+              <p>Topics</p>
+              <span>03</span>
+            </div>
+            <div class="text-[#12132DCC] flex justify-between text-xl font-bold">
+              <p>Replies</p>
+              <span>04</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- main -->
+  <main class="w-11/12 md:w-5/6 mx-auto mt-12">
+    <section class="discuss-section space-y-12">
+      <div class="w-full md:w-1/2 mx-auto text-center space-y-4">
+        <h2 class="text-4xl lg:text-5xl font-bold">Let's Discuss</h2>
+        <p class="text-[#12132D99] text-lg font-medium">Yes, you can run unit tests and view the results directly within
+          the app. The integrated testing features allow for a streamlined.</p>
+      </div>
+      <div id="loadding-spinner" class="text-center mt-12 hidden">
+        <span class="loading loading-spinner loading-lg"></span>
+      </div>
+      <div class="flex flex-col md:flex-row justify-between gap-4">
+        <div id="post-container" class="w-full md:w-[63%] space-y-4">
+
+        </div>
+        <div class="w-full md:w-[35%]">
+          <div class="bg-[#12132D0D] p-4">
+            <!-- table layout start -->
+            <div class="overflow-x-auto bg-white">
+              <table class="table">
+                <!-- head -->
+                <thead>
+                  <tr class="text-lg font-bold">
+                    <th class="text-[#12132D]">Title</th>
+                    <th>Mark as read (<span id="mark-read">0</span>)</th>
+                  </tr>
+                </thead>
+                <tbody id="table-body">
+
+                </tbody>
+              </table>
+            </div>
+            <!-- table layout end -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- banner forum -->
+    <section class="bg-[#12132D] p-8 md:p-14 lg:p-24 rounded-3xl mt-12">
+      <div class="banner-forum flex flex-col md:flex-row justify-between gap-16">
+        <div class="w-full md:w-[65%] text-white space-y-6">
+          <h2 class="text-4xl md:text-5xl font-semibold">Join Our Forum</h2>
+          <p class="font-semibold">Share your favorite opinion and win and wp forum coffee mug! Yes, you can run unit
+            tests and view the results directly within the app.</p>
+          <button class="btn bg-[#797DFC] border-none text-white text-base font-bold">Registered Now</button>
+        </div>
+        <div class="w-full md:w-[30%]">
+          <img src="resources/images/joinforum.png" alt="">
+        </div>
+      </div>
+    </section>
+
+    <!-- latest post -->
+    <section>
+      <div class="space-x-4 lg:space-y-8">
+        <div class="w-full md:w-1/2 mx-auto text-center space-y-4 mt-12">
+          <h2 class="text-4xl lg:text-5xl font-bold">Latest Post</h2>
+          <p class="text-[#12132D99] text-lg font-medium">Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined.</p>
+        </div>
+        <div id="latest-posts-container" class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- footer -->
+      <footer class="footer footer-center px-8 py-20 md:p-24 bg-[#f6f6f7] mt-12">
+        <aside>
+          <h1 class="text-6xl font-bold">API</h1>
+          <p class="w-full md:w-[60%] font-medium text-sm md:text-base text-[#12132DB3] mt-4">
+            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC
+          </p> 
+        </aside> 
+        <nav>
+          <div class="w-52 mx-auto flex justify-between items-center gap-4">
+            <a href=""><img class="w-9 h-9" src="resources/icons/logo-twitter 2.svg" alt=""></a>
+            <a href=""><img class="w-9 h-9" src="resources/icons/logo-fb-simple 2.svg" alt=""></a>
+            <a href=""><img class="w-9 h-9" src="resources/icons/3.svg" alt=""></a>
+            <a href=""><img class="w-9 h-9" src="resources/icons/4.svg" alt=""></a>
+          </div>
+        </nav>
+      </footer>
+      <footer class="footer py-8 border-t bg-base-200 border-base-300">
+          <p class="text-center text-sm md:text-base text-[#12132DB3] font-medium mx-auto">2024, All Rights Reserved.</p>
+      </footer>
+
+  <!-- script -->
+  <script src="js/utility.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
